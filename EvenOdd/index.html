@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Odd or Even</title></head>
+<body>
+  <h2>Odd or Even Checker</h2>
+  <input type="number" id="numInput" placeholder="Enter a number">
+  <button onclick="checkOddEven()">Check</button>
+  <p id="oddEvenResult"></p>
+  <script>
+    function checkOddEven() {
+      const n = parseInt(document.getElementById("numInput").value);
+      const res = n % 2 === 0 ? "Even Number" : "Odd Number";
+      document.getElementById("oddEvenResult").innerText = res;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Styled Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    input, select {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧮 Simple Calculator</h2>
+
+  <input type="number" id="calcNum1" placeholder="Enter first number">
+  <select id="calcOp">
+    <option value="+">+</option>
+    <option value="-">−</option>
+    <option value="*">×</option>
+    <option value="/">÷</option>
+  </select>
+  <input type="number" id="calcNum2" placeholder="Enter second number">
+  <br>
+  <button onclick="calculate()">Calculate</button>
+
+  <script>
+    function calculate() {
+      const n1 = parseFloat(document.getElementById("calcNum1").value);
+      const n2 = parseFloat(document.getElementById("calcNum2").value);
+      const op = document.getElementById("calcOp").value;
+
+      if (isNaN(n1) || isNaN(n2)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      let res;
+      switch(op) {
+        case '+': res = n1 + n2; break;
+        case '-': res = n1 - n2; break;
+        case '*': res = n1 * n2; break;
+        case '/':
+          if (n2 === 0) {
+            alert("Cannot divide by zero!");
+            return;
+          }
+          res = n1 / n2;
+          break;
+        default:
+          alert("Invalid operator");
+          return;
+      }
+
+      alert(`Result: ${res}`);
+    }
+  </script>
+
+</body>
+</html>

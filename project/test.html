@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JavaScript Operators Assignments</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    input, select {
+      padding: 8px;
+      margin: 8px 0;
+      width: 200px;
+    }
+    button {
+      padding: 10px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Operators Assignments</h1>
+
+  <!-- 1. Calculator Program -->
+  <div class="section">
+    <h2>1. Calculator</h2>
+    <input type="number" id="calcNum1" placeholder="First number">
+    <select id="calcOp">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="calcNum2" placeholder="Second number">
+    <button onclick="calculate()">Calculate</button>
+    <p id="calcResult"></p>
+  </div>
+
+  <!-- 2. Age Check -->
+  <div class="section">
+    <h2>2. Age Check (Vote Eligibility)</h2>
+    <input type="number" id="ageInput" placeholder="Enter age">
+    <button onclick="checkAge()">Check</button>
+    <p id="ageResult"></p>
+  </div>
+
+  <!-- 3. Grading System -->
+  <div class="section">
+    <h2>3. Grading System</h2>
+    <input type="number" id="marksInput" placeholder="Enter marks (0–100)">
+    <button onclick="checkGrade()">Check Grade</button>
+    <p id="gradeResult"></p>
+  </div>
+
+  <!-- 4. Odd or Even Checker -->
+  <div class="section">
+    <h2>4. Odd or Even Checker</h2>
+    <input type="number" id="oddEvenInput" placeholder="Enter number">
+    <button onclick="checkOddEven()">Check</button>
+    <p id="oddEvenResult"></p>
+  </div>
+
+  <script>
+    function calculate() {
+      const num1 = parseFloat(document.getElementById("calcNum1").value);
+      const num2 = parseFloat(document.getElementById("calcNum2").value);
+      const op = document.getElementById("calcOp").value;
+      let result;
+
+      switch(op) {
+        case '+': result = num1 + num2; break;
+        case '-': result = num1 - num2; break;
+        case '*': result = num1 * num2; break;
+        case '/': result = num2 !== 0 ? num1 / num2 : "Cannot divide by 0"; break;
+        default: result = "Invalid operator";
+      }
+
+      document.getElementById("calcResult").innerText = `Result: ${result}`;
+    }
+
+    function checkAge() {
+      const age = parseInt(document.getElementById("ageInput").value);
+      const msg = age >= 18 ? "✅ You are eligible to vote." : "❌ You are not eligible to vote.";
+      document.getElementById("ageResult").innerText = msg;
+    }
+
+    function checkGrade() {
+      const marks = parseInt(document.getElementById("marksInput").value);
+      let grade;
+      if (marks >= 90) grade = "A";
+      else if (marks >= 80) grade = "B";
+      else if (marks >= 70) grade = "C";
+      else if (marks >= 60) grade = "D";
+      else grade = "F";
+
+      document.getElementById("gradeResult").innerText = `Grade: ${grade}`;
+    }
+
+    function checkOddEven() {
+      const num = parseInt(document.getElementById("oddEvenInput").value);
+      const msg = num % 2 === 0 ? "✅ Even Number" : "❌ Odd Number";
+      document.getElementById("oddEvenResult").innerText = msg;
+    }
+  </script>
+
+</body>
+</html>

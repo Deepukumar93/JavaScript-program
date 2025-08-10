@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Voting Eligibility</title>
-</head>
+<head><title>Age Check</title></head>
 <body>
+  <h2>Age Check</h2>
+  <input type="number" id="ageInput" placeholder="Enter age">
+  <button onclick="checkAge()">Check</button>
+  <p id="ageResult"></p>
   <script>
-    let age = parseInt(prompt("Enter your age:"));
-    if (age >= 18) {
-      alert("You are eligible to vote.");
-    } else {
-      alert("You are not eligible to vote.");
+    function checkAge() {
+      const age = parseInt(document.getElementById("ageInput").value);
+      const msg = age >= 18 ? "Eligible to vote." : "Not eligible to vote.";
+      document.getElementById("ageResult").innerText = msg;
     }
   </script>
 </body>
